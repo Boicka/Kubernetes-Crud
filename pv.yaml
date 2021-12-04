@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv
+  namespace: hmedel
+  labels:
+    app: webapp
+spec:
+  storageClassName: sistemafichero
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/crud-data"

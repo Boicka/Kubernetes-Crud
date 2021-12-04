@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deplo
+  namespace: hmedel
+  labels:
+    estado: "1"
+spec:
+  selector:
+    matchLabels:
+      app: webapp
+  replicas: 7
+  template:
+    metadata:
+      labels:
+        app: webapp
+    spec:
+      containers:
+      - name: crud-app
+        image: devboicka/empleadocrud
+        #volumeMounts:
+        #  - mountPath: /volume-crud 
+        #    name: pv-claim
+        ports:
+        - containerPort: 80
+      #volumes:
+      #  - name: pv-claim
+      #    persistent Volume Claim: 
+      #      sclaimName: volume-claim
+        

@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: servicio-app
+  namespace: hmedel
+  labels:
+    app: webapp
+spec:
+  type: NodePort
+  ports:
+  - port: 80
+    #nodePort: 30001
+    #protocol: TCP
+    #targetPort: 80
+  #type: LoadBalancer
+  selector:
+    app: webapp
